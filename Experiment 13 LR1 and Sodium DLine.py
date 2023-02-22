@@ -80,9 +80,9 @@ plt.ylabel("Intensity")
 plt.title("Sodium D-Line Magnetic Field")
 plt.show()
 
-NAnoBP, _ = find_peaks(yNA, height = 20000.0)
-NABP, _ = find_peaks(yNA2, height = 20000.0)
-FWHMnoB = scipy.peak_widths(yNA, [403], rel_height = 0.5)
-
-FWHMB = scipy.peak_widths(yNA2, NABP, rel_height = 0.5)
+#Messing with calculating FWHM of two Sodium D line graphs. Did it manually instead!!
+#NAnoBP, NApeakval = find_peaks(yNA, height = 20000.0)
+#NABP, NApeakvalB = find_peaks(yNA2, height = 20000.0)
+#FWHMnoB = scipy.peak_widths(yNA, NAnoBP, rel_height = 0.5)
+#FWHMB = scipy.peak_widths(yNA2, NABP, rel_height = 0.5)
 
