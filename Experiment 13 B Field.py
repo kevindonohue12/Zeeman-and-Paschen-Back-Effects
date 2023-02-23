@@ -168,8 +168,8 @@ plt.title(r"$\lambda^2\ v.\ \Delta \lambda$")
 plt.show()
 
 #Linear Fit Analysis
-LA207 =linregress(B,LAM667)
-LA18 =linregress(B,LAM706)
-LA157 =linregress(B,LAM728)
-LA139 =linregress(B,LAM1083)
+LA207 =linregress(LSQ,LAM207)
+LA18 =linregress(LSQ,LAM18)
+LA157 =linregress(LSQ,LAM157)
+LA139 =linregress(LSQ,LAM139)
 
