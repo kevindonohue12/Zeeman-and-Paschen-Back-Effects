@@ -133,16 +133,17 @@ LA1083 =linregress(B,LAM1083)
 #Plotting delta lambda as a function of lambda squared with error bars for delta lamdba. Based on B value!
 #Divide by 1000 to match nm to nm
 #Did all B values but only really need 2.07 T bc its BMAX
+
 LAM207 = [84.7/1000, 113.245/1000, 80.272/1000, 363.792/1000]
 LAM18 = [72.072/1000, 81.65/1000, 87.696/1000, 309.52/1000]
 LAM157 = [64.064/1000, 95.98/1000, 70.064/1000,284.928/1000]
 LAM139 = [55.44/1000, 85.91/1000, 64.496/1000, 262.88/1000]
-LSQ = [667*667, 706*706, 728*728, 1083*1083]
+LSQ = [667.81517*667.81517, 706.57086*706.57086, 728.135*728.135, 1082.90911*1082.90911]
 newerr667 = [10.20/1000, 10.20/1000, 10.20/1000, 10.20/1000]
 Plot1 = plt.errorbar(LSQ,LAM207, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 2.07 T ", linestyle = '')
-Plot1 = plt.errorbar(LSQ,LAM18, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.80 T ", linestyle = '')
-Plot1 = plt.errorbar(LSQ,LAM157, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.57 T ", linestyle = '')
-Plot1 = plt.errorbar(LSQ,LAM139, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.39 T ", linestyle = '')
+#Plot1 = plt.errorbar(LSQ,LAM18, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.80 T ", linestyle = '')
+#Plot1 = plt.errorbar(LSQ,LAM157, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.57 T ", linestyle = '')
+#Plot1 = plt.errorbar(LSQ,LAM139, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.39 T ", linestyle = '')
 
 #Linear Fits for four sets of data, now based on B value
 coef207 = np.polyfit(LSQ, LAM207, 1)
@@ -151,15 +152,15 @@ L207 = plt.plot(LSQ, f207(LSQ), '--b')
 #180
 coef18 = np.polyfit(LSQ, LAM18, 1)
 f18 = np.poly1d(coef18)
-L18 = plt.plot(LSQ, f18(LSQ), '--y')
+#L18 = plt.plot(LSQ, f18(LSQ), '--y')
 #157
 coef157 = np.polyfit(LSQ, LAM157, 1)
 f157 = np.poly1d(coef157)
-L157 = plt.plot(LSQ, f157(LSQ), '--g')
+#L157 = plt.plot(LSQ, f157(LSQ), '--g')
 #139
 coef139 = np.polyfit(LSQ, LAM139, 1)
 f139 = np.poly1d(coef139)
-L139 = plt.plot(LSQ, f139(LSQ), '--r')
+#L139 = plt.plot(LSQ, f139(LSQ), '--r')
 
 plt.xlabel(r"$\lambda^2\ (nm)^2$")
 plt.legend()
