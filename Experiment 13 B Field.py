@@ -125,9 +125,51 @@ plt.title(r"B Field v. $\Delta \lambda$")
 plt.show()
 
 #Linear Fit Analysis
-L1 =linregress(B,LAM667)
-L2 =linregress(B,LAM706)
-L3 =linregress(B,LAM728)
-L4 =linregress(B,LAM1083)
+LA667 =linregress(B,LAM667)
+LA706 =linregress(B,LAM706)
+LA728 =linregress(B,LAM728)
+LA1083 =linregress(B,LAM1083)
 
+#Plotting delta lambda as a function of lambda squared with error bars for delta lamdba. Based on B value!
+#Divide by 1000 to match nm to nm
+#Did all B values but only really need 2.07 T bc its BMAX
+LAM207 = [84.7/1000, 113.245/1000, 80.272/1000, 363.792/1000]
+LAM18 = [72.072/1000, 81.65/1000, 87.696/1000, 309.52/1000]
+LAM157 = [64.064/1000, 95.98/1000, 70.064/1000,284.928/1000]
+LAM139 = [55.44/1000, 85.91/1000, 64.496/1000, 262.88/1000]
+LSQ = [667*667, 706*706, 728*728, 1083*1083]
+newerr667 = [10.20/1000, 10.20/1000, 10.20/1000, 10.20/1000]
+Plot1 = plt.errorbar(LSQ,LAM207, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 2.07 T ", linestyle = '')
+Plot1 = plt.errorbar(LSQ,LAM18, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.80 T ", linestyle = '')
+Plot1 = plt.errorbar(LSQ,LAM157, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.57 T ", linestyle = '')
+Plot1 = plt.errorbar(LSQ,LAM139, yerr=newerr667, label = r"Exp. $\Delta\lambda$ at B = 1.39 T ", linestyle = '')
+
+#Linear Fits for four sets of data, now based on B value
+coef207 = np.polyfit(LSQ, LAM207, 1)
+f207 = np.poly1d(coef207)
+L207 = plt.plot(LSQ, f207(LSQ), '--b')
+#180
+coef18 = np.polyfit(LSQ, LAM18, 1)
+f18 = np.poly1d(coef18)
+L18 = plt.plot(LSQ, f18(LSQ), '--y')
+#157
+coef157 = np.polyfit(LSQ, LAM157, 1)
+f157 = np.poly1d(coef157)
+L157 = plt.plot(LSQ, f157(LSQ), '--g')
+#139
+coef139 = np.polyfit(LSQ, LAM139, 1)
+f139 = np.poly1d(coef139)
+L139 = plt.plot(LSQ, f139(LSQ), '--r')
+
+plt.xlabel(r"$\lambda^2\ (nm)^2$")
+plt.legend()
+plt.ylabel(r"$\Delta \lambda$ (nm)")
+plt.title(r"$\lambda^2\ v.\ \Delta \lambda$")
+plt.show()
+
+#Linear Fit Analysis
+LA207 =linregress(B,LAM667)
+LA18 =linregress(B,LAM706)
+LA157 =linregress(B,LAM728)
+LA139 =linregress(B,LAM1083)
 
