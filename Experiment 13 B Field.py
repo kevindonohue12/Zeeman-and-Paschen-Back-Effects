@@ -1,6 +1,7 @@
 import numpy as np
 from numpy import loadtxt
 import matplotlib.pyplot as plt
+from scipy.stats import linregress
 
 # Files for Varying Magnetic Field Helium Spectra
 # Need to Change File Path on Each Device
@@ -81,3 +82,52 @@ plt.legend()
 plt.ylabel("Intensity")
 plt.title("Helium 1083 nm with Varying B Field")
 plt.show()
+
+
+# Plotting delta lambda as a function of B with error bars
+B = [2.07 , 1.80 , 1.57 , 1.39]
+Berr = [0.005, 0.005, 0.005, 0.005]
+LAM667 = [84.7, 72.072, 64.064, 55.44]
+err667 = [10.20, 10.20, 10.20, 10.20]
+LAM706 = [113.245, 81.65, 95.98, 85.91]
+err706 = [10.20, 10.20, 10.20, 10.20]
+LAM728 = [80.272, 87.696, 70.064, 64.496]
+err728 = [10.20, 10.20, 10.20, 10.20]
+LAM1083 = [363.792, 309.52, 284.928, 262.88]
+err1083 = [10.20, 10.20, 10.20, 10.20]
+
+Plot5 = plt.errorbar(B,LAM667, xerr=Berr,yerr=err667, label = "667 nm", linestyle = '')
+Plot6 = plt.errorbar(B,LAM706, xerr=Berr, yerr=err667, label = "706 nm", linestyle = '')
+Plot7 = plt.errorbar(B,LAM728, xerr=Berr, yerr=err667, label = "728 nm", linestyle = '')
+Plot8 = plt.errorbar(B,LAM1083, xerr=Berr, yerr=err667, label = "1083 nm", linestyle = '')
+
+#Linear Fits for four sets of data
+coef667 = np.polyfit(B, LAM667, 1)
+f667 = np.poly1d(coef667)
+Lin1 = plt.plot(B, f667(B), '--b')
+#706
+coef706 = np.polyfit(B, LAM706, 1)
+f706 = np.poly1d(coef706)
+Lin1 = plt.plot(B, f706(B), '--y')
+#728
+coef728 = np.polyfit(B, LAM728, 1)
+f728 = np.poly1d(coef728)
+Lin1 = plt.plot(B, f728(B), '--g')
+#1083
+coef1083 = np.polyfit(B, LAM1083, 1)
+f1083 = np.poly1d(coef1083)
+Lin1 = plt.plot(B, f1083(B), '--r')
+#Plot labels
+plt.xlabel("B Field (T)")
+plt.legend()
+plt.ylabel(r"$\Delta \lambda$ (pm)")
+plt.title(r"B Field v. $\Delta \lambda$")
+plt.show()
+
+#Linear Fit Analysis
+L1 =linregress(B,LAM667)
+L2 =linregress(B,LAM706)
+L3 =linregress(B,LAM728)
+L4 =linregress(B,LAM1083)
+
+

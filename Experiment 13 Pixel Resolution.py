@@ -41,11 +41,11 @@ XeHe1083 = loadtxt(r"C:\Users\Kevin\OneDrive - Northeastern University\Senior Sp
 #print(XeHe1083)
 
 x4,y4 = np.transpose(XeHe1083)
-Plot3 = plt.plot(x4,y4)
+Plot4 = plt.plot(x4,y4)
 plt.xlabel("Pixel Number")
 plt.ylabel("Intensity")
 plt.title("Xenon and Helium 1083 nm")
 plt.show()
 
-# 
+
 
