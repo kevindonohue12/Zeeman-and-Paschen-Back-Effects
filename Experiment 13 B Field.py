@@ -5,7 +5,6 @@ from scipy.stats import linregress
 
 # Files for Varying Magnetic Field Helium Spectra
 # Need to Change File Path on Each Device
-# Use Kevin on PC, kdono user on laptop
 
 #667
 He6674 = loadtxt(r"C:\Users\Kevin\OneDrive - Northeastern University\Senior Spring LAST SEM\CAPSTONE\Lab 3\Audrey and Kevin\667\4.5 mm", dtype = "double")

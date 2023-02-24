@@ -6,7 +6,6 @@ from scipy.signal import find_peaks
 
 # Files for Room Light, Helium, Cold/Hot Sodium, as well as the Sodium D-Line
 # Need to Change File Path on Each Device
-# Use Kevin on PC, kdono user on laptop
     
 RoomL = loadtxt(r"C:\Users\Kevin\OneDrive - Northeastern University\Senior Spring LAST SEM\CAPSTONE\Lab 3\Audrey and Kevin\Room Light Spectra.txt", dtype = "double")
 #print(RoomL)
@@ -80,7 +79,7 @@ plt.ylabel("Intensity")
 plt.title("Sodium D-Line Magnetic Field")
 plt.show()
 
-#Messing with calculating FWHM of two Sodium D line graphs. Did it manually instead!!
+#Messing with calculating FWHM of two Sodium D line graphs.
 NAnoBP, NApeakval = find_peaks(yNA, height = 20000.0)
 NABP, NApeakvalB = find_peaks(yNA2, height = 20000.0)
 #FWHMnoB = scipy.peak_widths(yNA, NAnoBP, rel_height = 0.5)
